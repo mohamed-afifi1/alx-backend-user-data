@@ -5,13 +5,11 @@ from typing import List
 import re
 
 
-def filter_datum(fields: List,
-                 redaction: str,
-                 message: str,
-                 separator: str) -> str:
-    """Filters personal data"""
-    result = message
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
+    """ returns the log message obfuscated """
+    temp = message
     for field in fields:
-        result = re.sub(field + '=.*?' + separator,
-                        field + '=' + redaction + separator, result)
-    return result
+        temp = re.sub(field + "=.*?" + separator,
+                      field + "=" + redaction + separator, temp)
+    return temp
