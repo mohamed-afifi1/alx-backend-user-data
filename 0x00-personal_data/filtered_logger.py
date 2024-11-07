@@ -8,7 +8,7 @@ import re
 def filter_datum(fields: List,
                  redaction: str,
                  message: str,
-                 separator: str):
+                 separator: str) -> str:
     """
     Filters personal data according to the provided
     redaction pattern and returns the filtered message.
