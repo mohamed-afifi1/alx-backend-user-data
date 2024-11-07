@@ -12,7 +12,6 @@ def filter_datum(fields: List,
     """Filters personal data"""
     result = message
     for field in fields:
-        new_pattern = field + '=' + redaction + separator
         result = re.sub(field + '=.*?' + separator,
                         field + '=' + redaction + separator, result)
     return result
