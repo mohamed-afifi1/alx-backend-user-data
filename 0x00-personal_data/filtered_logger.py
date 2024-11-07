@@ -9,13 +9,9 @@ def filter_datum(fields: List,
                  redaction: str,
                  message: str,
                  separator: str) -> str:
-    """
-    Filters personal data according to the provided
-    redaction pattern and returns the filtered message.
-    """
+    """Filters personal data"""
     result = message
     for field in fields:
-        old_pattern = field + '=.*?' + separator
         new_pattern = field + '=' + redaction + separator
-        result = re.sub(old_pattern, new_pattern, result)
+        result = re.sub(field + '=.*?' + separator, new_pattern, result)
     return result
